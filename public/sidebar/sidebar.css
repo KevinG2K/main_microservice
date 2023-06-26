@@ -4,6 +4,10 @@
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
+body {
+    background-color: #242b33 !important;
+}
+
 body,
 html {
     height: 100%;
@@ -276,4 +280,23 @@ a.article:hover {
 
 .margin-icon-sidebar {
     margin-left: 20px;
+}
+
+/* ---------------------------------------------------
+    TABLE STYLE
+----------------------------------------------------- */
+
+thead {
+    background-color: #beaf87 !important;
+    color: #000 !important;
+}
+
+.table-dark td,
+.table-dark th,
+.table-dark thead th {
+    border-color: #beaf87;
+}
+
+h1 {
+    color: #fff;
 }

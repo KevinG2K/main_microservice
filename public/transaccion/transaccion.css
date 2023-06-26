@@ -1,16 +1,15 @@
 body {
-    background-image: url('/gerentecss/img/fondo2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-
 }
+
 .table {
     height: 30vh;
     padding-top: 30px;
-    padding-right: 80px;
+    padding-right: 70px;
     padding-bottom: 50px;
-    padding-left: 200px;
+    padding-left: 240px;
 }
 
 #tablita th,
