@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AsesorController;
 use App\Http\Controllers\DocumentoController;
+use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\GerenteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PropietarioController;
@@ -28,9 +29,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 /* Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'main'])->name('base'); */
 Route::get('/contactus', [ContactusController::class, 'contactus'])->name('contactus');
@@ -39,3 +37,4 @@ Route::get('/perfil', [GerenteController::class, 'perfil'])->name('perfil_gerent
 Route::get('/inmuebles', [InmuebleController::class, 'inmuebles'])->name('inmuebles');
 Route::get('/asesores', [AsesorController::class, 'asesores'])->name('asesores');
 Route::get('/transacciones', [TransaccionController::class, 'transacciones'])->name('transacciones');
+
