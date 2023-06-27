@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AsesorController; // Asegúrate de importar el controlador
-
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/asesores/api', [AsesorController::class, 'index']); // Utiliza la sintaxis de arreglo para referenciar el controlador
+Route::post('/asesores/api/upload', 'App\Http\Controllers\PDFController@uploadPDF');
+

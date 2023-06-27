@@ -157,3 +157,22 @@ tbody {
 .letra-negra {
     color: black;
 }
+.document-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    background-color: #beaf87;
+    padding: 20px;
+  }
+
+  .document-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .document-container button {
+    margin-bottom: 10px;
+  }

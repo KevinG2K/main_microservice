@@ -49,3 +49,5 @@ Route::get('/getLastInmueble', [ApiController::class, 'getLastInmueble'])->name(
 
 Route::post('/regTransaccion', [ApiController::class, 'regTransaccion'])->name('regTransaccion');
 Route::get('/getLastTransaccion', [ApiController::class, 'getLastTransaccion'])->name('getLastTransaccion');
+Route::get('/documentos', [DocumentoController::class, 'index'])->name('documento');
+Route::get('/asesores/api', [AsesorController::class, 'index']); // Utiliza la sintaxis de arreglo para referenciar el controlador
