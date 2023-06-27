@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class ApiController extends Controller
 {
-    const IP = 'http://127.0.0.1:8080';
+    const IP = 'http://34.95.254.100';
 
     public function bussiness()
     {
