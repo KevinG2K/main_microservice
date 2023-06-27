@@ -9,6 +9,7 @@
     <title>Franquicia Inmobiliaria Century 21</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <!-- Bootstrap CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
@@ -59,14 +60,14 @@
                 <li class="{{ Request::is('transacciones') ? 'active' : '' }}">
                     <a href="/transacciones"><i class="fas fa-handshake"></i> Transacciones</a>
                 </li>
-                <li class="{{ Request::is('documentos') ? 'active' : '' }}">
+                <li class="{{ Request::is('ia') ? 'active' : '' }}">
                     <a href="#"><i class="fas fa-folder"></i> IA</a>
                 </li>
                 <li class="{{ Request::is('reportes') ? 'active' : '' }}">
                     <a href="#"><i class="fas fa-file"></i> Reportes</a>
                 </li>
                 <li class="{{ Request::is('documentos') ? 'active' : '' }}">
-                    <a href="#"><i class="fas fa-folder"></i> Documentos</a>
+                    <a href="/documentos"><i class="fas fa-folder"></i> Documentos</a>
                 </li>
             </ul>
             <hr class="linea-division">
@@ -118,9 +119,7 @@
     <div class="overlay"></div>
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js">
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">

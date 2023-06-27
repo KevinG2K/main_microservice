@@ -37,4 +37,5 @@ Route::get('/perfil', [GerenteController::class, 'perfil'])->name('perfil_gerent
 Route::get('/inmuebles', [InmuebleController::class, 'inmuebles'])->name('inmuebles');
 Route::get('/asesores', [AsesorController::class, 'asesores'])->name('asesores');
 Route::get('/transacciones', [TransaccionController::class, 'transacciones'])->name('transacciones');
-
+Route::get('/documentos', [DocumentoController::class, 'index'])->name('documento');
+Route::get('/asesores/api', [AsesorController::class, 'index']); // Utiliza la sintaxis de arreglo para referenciar el controlador
