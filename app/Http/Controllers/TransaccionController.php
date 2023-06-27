@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaccion;
 use Illuminate\Http\Request;
 
 class TransaccionController extends Controller
 {
     public function transacciones()
     {
-        return view('transaccion.index');
+        $transacciones = Transaccion::all();
+        return view('transaccion.index', ['transacciones' => $transacciones]);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\AsesorController;
 use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\ContactusController;
@@ -38,3 +39,13 @@ Route::get('/inmuebles', [InmuebleController::class, 'inmuebles'])->name('inmueb
 Route::get('/asesores', [AsesorController::class, 'asesores'])->name('asesores');
 Route::get('/transacciones', [TransaccionController::class, 'transacciones'])->name('transacciones');
 
+// *********** API ********* //
+Route::get('/bussiness', [ApiController::class, 'bussiness'])->name('bussiness');
+
+Route::post('/regInmueble', [ApiController::class, 'regInmueble'])->name('regInmueble');
+Route::get('/setAllDatos', [ApiController::class, 'setAllDatos'])->name('setAllDatos');
+Route::get('/callInmueble', [ApiController::class, 'callInmueble'])->name('callInmueble');
+Route::get('/getLastInmueble', [ApiController::class, 'getLastInmueble'])->name('getLastInmueble');
+
+Route::post('/regTransaccion', [ApiController::class, 'regTransaccion'])->name('regTransaccion');
+Route::get('/getLastTransaccion', [ApiController::class, 'getLastTransaccion'])->name('getLastTransaccion');

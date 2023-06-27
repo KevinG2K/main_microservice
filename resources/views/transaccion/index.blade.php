@@ -13,56 +13,35 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Casa</th>
-                    <th scope="col">Propietario</th>
-                    <th scope="col">Interesado</th>
+                    <th scope="col">Fecha</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Fecha Inicio</th>
                     <th scope="col">Estado</th>
+                    <th scope="col">Inmueble_ID</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td><img src="https://img.freepik.com/vector-gratis/hermosa-casa_24877-50819.jpg" alt="casa"
-                            width="100%" height="100%"></td>
-                    <td>Propietario 1</td>
-                    <td>Interesado 1</td>
-                    <td>Venta</td>
-                    <td>06/12/2022</td>
-                    <td>En Proceso</td>
-                    <td>
-                        <form action="#" method="POST">
-                            <a href="#" class="btn btn-link" data-toggle="modal" data-target="#exampleModal2">
-                                <ion-icon name="enter-outline"></ion-icon>
-                            </a>
-                            <a type="submit" class="btn btn-link" id="btnEliminar">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </a>
-                        </form>
-
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td><img src="https://definicion.de/wp-content/uploads/2011/01/casa-2.jpg" alt="casa" width="100%"
-                            height="100%"></td>
-                    <td>Propietario 1</td>
-                    <td>Interesado 2</td>
-                    <td>Alquiler</td>
-                    <td>06/12/2023</td>
-                    <td>En Proceso</td>
-                    <td>
-                        <form action="#" method="POST">
-                            <a href="#" class="btn btn-link" data-toggle="modal" data-target="#exampleModal2">
-                                <ion-icon name="enter-outline"></ion-icon>
-                            </a>
-                            <button type="button" class="btn btn-link" id="btnEliminar">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
+                @foreach ($transacciones as $item)
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><img src="https://img.freepik.com/vector-gratis/hermosa-casa_24877-50819.jpg" alt="casa"
+                                width="100%" height="100%"></td>
+                        <td>{{ $item->fecha }}</td>
+                        <td>{{ $item->tipo }}</td>
+                        <td>{{ $item->estado }}</td>
+                        <td>{{ $item->inmueble_id }}</td>
+                        <td>
+                            <form action="#" method="POST">
+                                <a href="#" class="btn btn-link" data-toggle="modal" data-target="#exampleModal2">
+                                    <ion-icon name="enter-outline"></ion-icon>
+                                </a>
+                                <a type="submit" class="btn btn-link" id="btnEliminar">
+                                    <ion-icon name="trash-outline"></ion-icon>
+                                </a>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
@@ -75,29 +54,34 @@
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Transaccion!</h1>
                 </div>
-                <form class="container" method="POST" action="#" enctype="multipart/form-data">
+                <form class="container" method="POST" action="{{ route('regTransaccion') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">ID de la Casa:</label>
-                            <input name="nombre" type="text" class="form-control" id="id-casa" readonly required>
-                            {{-- Este atributo se rellanara solo, porque esta relacionado con el inmueble --}}
-                            {{-- <label for="recipient-name" class="col-form-label">Propietario:</label>
-                            <input name="nombre" type="text" class="form-control" id="propietario" maxlength="50"
-                                required> --}}
+                            <input name="inmueble_id" type="text" class="form-control" id="inmueble_id" readonly
+                                required>
                         </div>
                         <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Interesado:</label>
-                            <input name="interesado" type="text" class="form-control" id="recipient-name" maxlength="50"
-                                required>
+                            <label for="fecha">Fecha:</label>
+                            <input type="date" class="form-control" id="fecha" name="fecha" max="2022-12-30">
                         </div>
                         <div class="form-group">
                             <label for="titulo" class="col-form-label">Tipo:</label>
                             <select name="tipo" class="form-control" id="tipo">
                                 <option value="opcion1">Selecciona una opción</option>
-                                <option value="opcion2">Venta</option>
-                                <option value="opcion3">Alquiler</option>
-                                <option value="opcion3">Anticretico</option>
+                                <option value="venta">Venta</option>
+                                <option value="alquiler">Alquiler</option>
+                                <option value="anticretico">Anticretico</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado" class="col-form-label">Estado:</label>
+                            <select name="estado" class="form-control" id="estado">
+                                <option value="opcion1">Selecciona una opción</option>
+                                <option value="1">Pendiente</option>
+                                <option value="2">Proceso</option>
+                                <option value="3">Completada</option>
                             </select>
                         </div>
 
@@ -126,7 +110,8 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">ID de la Casa:</label>
-                            <input name="nombre" type="text" class="form-control" id="id-casa" readonly required>
+                            <input name="nombre" type="text" class="form-control" id="inmueble_id" readonly
+                                required>
                             {{-- Este atributo se rellanara solo, porque esta relacionado con el inmueble --}}
                             <label for="recipient-name" class="col-form-label">Propietario:</label>
                             <input name="nombre" type="text" class="form-control" id="propietario" maxlength="50"
@@ -182,7 +167,7 @@
 
     <script>
         $(document).ready(function() {
-            var inputIdCasa = document.getElementById('id-casa');
+            var inputIdCasa = document.getElementById('inmueble_id');
             var urlParams = new URLSearchParams(window.location.search);
             var value = urlParams.get('x');
 

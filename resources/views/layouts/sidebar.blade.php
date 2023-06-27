@@ -63,7 +63,7 @@
                     <a href="#"><i class="fas fa-folder"></i> IA</a>
                 </li>
                 <li class="{{ Request::is('reportes') ? 'active' : '' }}">
-                    <a href="#"><i class="fas fa-file"></i> Reportes</a>
+                    <a href="{{ route('bussiness') }}"><i class="fas fa-file"></i> Bussiness Inteligence</a>
                 </li>
                 <li class="{{ Request::is('documentos') ? 'active' : '' }}">
                     <a href="#"><i class="fas fa-folder"></i> Documentos</a>
