@@ -12,4 +12,11 @@ class InmuebleController extends Controller
         $inmuebles = Inmueble::all();
         return view('inmueble.index', ['inmuebles' => $inmuebles]);
     }
+
+    public function index()
+    {
+        $inmuebles = Inmueble::all();
+        return response()->json($inmuebles);
+    }
+
 }
