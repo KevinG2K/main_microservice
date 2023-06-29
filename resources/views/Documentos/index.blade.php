@@ -15,7 +15,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
 
 
-
 <script>
   $(document).ready(function() {
     $('#generar-pdf').click(function() {
@@ -39,7 +38,25 @@
   $(document).ready(function() {
     $('#generar-pdf-final').click(function() {
       obtenerAsesores();
+      clicke();
     });
+
+    function clicke() {
+    $.ajax({
+      url: 'https://microservice-generatordocument-production.up.railway.app/auth',
+      method: 'POST',
+      success: function(response) {
+        // La solicitud se realizó con éxito
+        console.log('La solicitud POST se completó correctamente');
+        console.log(response); // Puedes mostrar la respuesta en la consola o realizar acciones adicionales si es necesario
+      },
+      error: function(xhr, status, error) {
+        // Ocurrió un error al realizar la solicitud POST
+        console.log('Error al realizar la solicitud POST');
+        console.log(error);
+      }
+    });
+  }
 
   function obtenerAsesores() {
       $.ajax({
@@ -86,6 +103,7 @@
 $(document).ready(function() {
 $('#generar-csv').click(function() {
     obtenerAsesores();
+    clicke();
   });
 
   function obtenerAsesores() {
@@ -100,6 +118,22 @@ $('#generar-csv').click(function() {
         }
       });
     }
+    function clicke() {
+    $.ajax({
+      url: 'https://microservice-generatordocument-production.up.railway.app/auth',
+      method: 'POST',
+      success: function(response) {
+        // La solicitud se realizó con éxito
+        console.log('La solicitud POST se completó correctamente');
+        console.log(response); // Puedes mostrar la respuesta en la consola o realizar acciones adicionales si es necesario
+      },
+      error: function(xhr, status, error) {
+        // Ocurrió un error al realizar la solicitud POST
+        console.log('Error al realizar la solicitud POST');
+        console.log(error);
+      }
+    });
+  }
 
 function generarCSV(asesores) {
   let csvContent = 'Nombre,Correo,Teléfono,Código\n';
@@ -116,6 +150,8 @@ function generarCSV(asesores) {
 }
 
 });
+
+
 
 
 </script>
